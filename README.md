@@ -25,7 +25,7 @@ x25(ish) M-M wires
 The basic premise is the Ranging module constantly measures the distance of things in front of it, when it detects something within 20 cm, it will read in the temperature from the DHT11 and display it on the 4-digit 7-segment display.
 
 ## HC595 shift register
-This reduces the amount of Arduino pins needed to drive the display. To explain how that's possible lets go over some data about the display first.
+The HC595 reduces the amount of Arduino pins needed to drive the display. To explain how that's possible lets go over some data about the display first.
 
 The 4-digit 7-segment display has 8 inputs that control which segments (including decimal point) to display. Each segment (and decimal point) is controlled by a specific input. Since each input can only be on or off, we can say our display needs 8 bits of data to display a given character.  Here's a table detailing which bits need to be on/off to display a number.
 
@@ -50,9 +50,7 @@ The 4-digit 7-segment display has 8 inputs that control which segments (includin
 
 To supply the display with these 8 bits of data, we need to use 8 pins from our Arduino, which is a lot.
 
-This is where the HC595 comes into play.
-
-The HC595 is an 8-bit shift register with serial-in and parallel-out. It has the exact number of bits we need and it allows us to input data serially (one bit at a time) and have all those bits be accessible in parallel.  The HC595 works as a buffer for our input and when we're done writing our bit pattern, we tell it to output the entire pattern at once to its 8 outputs, which will drive the display.
+This is where the HC595 comes in handy. The HC595 is an 8-bit shift register, which is a device that stores data serially, i.e one bit at a time, and shifts it out in parallel, i.e all at once. In other words, we send our bit battern to it serially, and have the whole bit pattern be available to the display all at once. The HC595 only needs 3 pins from the Arduino, which is much less than 8.
 
 ## Displaying multiple numbers
 
