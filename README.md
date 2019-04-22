@@ -52,7 +52,7 @@ To supply the display with these 8 bits of data, we need to use 8 pins from our 
 
 This is where the HC595 comes into play.
 
-The HC595 is an 8-bit shift register with serial-in and parallel-out. It has the exact number of bits we need and it allows us to input data serially (one bit at a time) and have all those bits be accessible in parallel.  The HC595 basically buffers our input and then when we're done writing our bit pattern, we tell it to output the whole pattern at once to its 8 outputs, which will drive the display.
+The HC595 is an 8-bit shift register with serial-in and parallel-out. It has the exact number of bits we need and it allows us to input data serially (one bit at a time) and have all those bits be accessible in parallel.  The HC595 works as a buffer for our input and when we're done writing our bit pattern, we tell it to output the entire pattern at once to its 8 outputs, which will drive the display.
 
 ## Displaying multiple numbers
 
